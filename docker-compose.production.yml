@@ -1,0 +1,35 @@
+# docker-compose.production.yml
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+  media:
+
+# Всё отличие – заменяем build на image и указываем, какой образ использовать
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  backend:
+    image: rest2011/kittygram_backend
+    env_file: .env
+    volumes:
+      - static:/static/
+      - media:/app/media/
+  frontend:
+    image: rest2011/kittygram_frontend  # Качаем с DockerHub
+    env_file: .env
+    command: cp -r /app/build/. /static/
+    volumes:
+      - static:/static
+  gateway:
+    image: rest2011/kittygram_gateway  # Качаем с DockerHub
+    env_file: .env
+    volumes:
+      - static:/static
+      - media:/app/media/
+    ports:
+      - 9000:80
