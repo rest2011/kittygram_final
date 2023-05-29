@@ -18,7 +18,7 @@ services:
     env_file: .env
     volumes:
       - static:/static/
-      - media:/app/media/cats/images
+      - media:/media
   frontend:
     image: rest2011/kittygram_frontend  # Качаем с DockerHub
     env_file: .env
@@ -30,6 +30,6 @@ services:
     env_file: .env
     volumes:
       - static:/static
-      - media:/app/media/cats/images
+      - media:/media
     ports:
       - 9000:80
