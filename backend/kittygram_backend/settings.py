@@ -11,7 +11,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-123')
 
 DEBUG = (os.getenv('DEBUG', 'False') == 'True')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
+
+ALLOWED_HOSTS = ALLOWED_HOSTS.split(',')
 
 # ALLOWED_HOSTS = ['158.160.0.4', '127.0.0.1', 'localhost', 'restkit.sytes.net']
 
@@ -64,7 +66,7 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB', 'django'),
         'USER': os.getenv('POSTGRES_USER', 'django'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
+        'HOST': os.getenv('DB_HOST', 'db'),
         'PORT': os.getenv('DB_PORT', 5432)
     }
 }
