@@ -152,4 +152,4 @@ media/
 node_modules
 
 # Docker-compose
-docker-compose.yml
+/docker-compose.yml

@@ -30,4 +30,5 @@ docker compose exec backend cp -r /app/collected_static/. /static/static/
 
 ### Автор
 Ринат Хаматьяров (https://github.com/rest2011)
-![example event parameter](https://github.com/github/rest2011/kittygram_final/actions/workflows/main.yml/badge.svg?event=push)
+
+![badge](https://github.com/rest2011/kittygram_final/actions/workflows/main.yml/badge.svg?event=push)
